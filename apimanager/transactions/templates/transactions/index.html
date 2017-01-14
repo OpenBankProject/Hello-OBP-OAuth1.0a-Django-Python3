@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load humanize static %}
+
+{% block page_title %}{{ block.super }} / Consumers{% endblock page_title %}
+
+{% block content %}
+<div id="transactions">
+	<h1>transactions</h1>
+</div>
+{% endblock content %}
+
+
+
+{% block extrajs %}
+{% comment %}
+	<script type="text/javascript" src="{% static 'transactions/js/transactions.js' %}"></script>
+	<script type="text/javascript">
+	</script>
+{% endcomment %}
+{% endblock extrajs %}
+
+
+{% block extracss %}
+		<link href="{% static 'transactions/css/transactions.css' %}" rel="stylesheet">
+{% endblock extracss %}

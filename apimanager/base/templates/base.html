@@ -31,6 +31,12 @@
 					<li{% if consumers_index_url in request.path  %} class="active" {% endif %}><a href="{{ consumers_index_url }}">Consumers</a></li>
 					{% url "users-index" as users_index_url %}
 					<li{% if users_index_url in request.path  %} class="active" {% endif %}><a href="{{ users_index_url }}">Users</a></li>
+                    {% url "accounts-index" as accounts_index_url %}
+                    <li{% if accounts_index_url in request.path  %} class="active" {% endif %}><a href="{{ accounts_index_url }}">Accounts</a></li>
+                    {% url "transactions-index" as transactions_index_url %}
+                    <li{% if transactions_index_url in request.path  %} class="active" {% endif %}><a href="{{ transactions_index_url }}">Transactions</a></li>
+                    {% url "payment-index" as payment_index_url %}
+                    <li{% if payment_index_url in request.path  %} class="active" {% endif %}><a href="{{ payment_index_url }}">Make Payment</a></li>
 					{% comment %}
 					{% url "api-calls-grouped" as api_calls_grouped_url %}
 					<li{% ifequal request.path api_calls_grouped_url %} class="active" {% endifequal %}><a href="{{ api_calls_grouped_url }}">API Calls Grouped</a></li>

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load humanize static %}
+
+{% block page_title %}{{ block.super }} / Consumers{% endblock page_title %}
+
+{% block content %}
+<div id="accounts">
+	<h1>Accounts</h1>
+	<h3> Our account: {% with accounts|first as first_doc %}{{ first_doc.id }}{% endwith %} </h3>
+	<h3> List of accounts: </h3>
+	<ol>
+        {% for a in accounts %}
+            <li><b>{{a.id}}</b></li>
+        {% endfor %}
+    </ol>
+</div>
+{% endblock content %}
+
+
+
+{% block extrajs %}
+{% comment %}
+	<script type="text/javascript" src="{% static 'accounts/js/accounts.js' %}"></script>
+	<script type="text/javascript">
+	</script>
+{% endcomment %}
+{% endblock extrajs %}
+
+
+{% block extracss %}
+		<link href="{% static 'accounts/css/accounts.css' %}" rel="stylesheet">
+{% endblock extracss %}

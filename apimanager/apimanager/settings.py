@@ -16,6 +16,7 @@ from django.core.exceptions import ImproperlyConfigured
 from django.urls import reverse_lazy
 
 
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -24,7 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = None
+SECRET_KEY = 'asdkjhjklf679876asdf9876789fasdhfk$$FF'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -48,6 +49,9 @@ INSTALLED_APPS = [
     'oauth',
     'consumers',
     'users',
+    'accounts',
+    'transactions',
+    'payment',
     #'api_calls',
     #'api_config',
 ]
@@ -177,17 +181,19 @@ LOGIN_URL = reverse_lazy('home')
 API_DATETIMEFORMAT = '%Y-%m-%dT%H:%M:%SZ'
 
 
-OAUTH_API = 'http://127.0.0.1:8080'
+#OAUTH_API = 'https://danskebank.openbankproject.com'
+OAUTH_API = 'https://apisandbox.openbankproject.com'
 OAUTH_TOKEN_PATH = '/oauth/initiate'
 OAUTH_AUTHORIZATION_PATH = '/oauth/authorize'
 OAUTH_ACCESS_TOKEN_PATH = '/oauth/token'
-OAUTH_API_BASE_PATH = '/obp/v2.1.0'
+#OAUTH_API_BASE_PATH = '/obp/v2.1.0' #danske
+OAUTH_API_BASE_PATH = '/obp/v2.1.0' #sanbox
 
 
 
 # Set OAuth client key/secret in apimanager/local_settings.py
-OAUTH_CONSUMER_KEY = None
-OAUTH_CONSUMER_SECRET = None
+OAUTH_CONSUMER_KEY = 'xfcsuycykkjjdt0lgbluzn0a3gys3ow5twrtat5o'# 'ssin4gmz2haevdx44wajv4wos53tdwktmfyfebrr'
+OAUTH_CONSUMER_SECRET = 'i333z41viimm3xieh5duj3kiz3gvtftdvgydow5d'#'gzv5xi5qk13mylcwcr5pnlrmjrykxcade14tkfko'
 
 # Local settings can override anything in here
 try:
