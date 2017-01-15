@@ -13,6 +13,7 @@ encoding//oauth/apps.py=utf-8
 encoding//oauth/urls.py=utf-8
 encoding//oauth/views.py=utf-8
 encoding//payment/apps.py=utf-8
+encoding//payment/forms.py=utf-8
 encoding//payment/urls.py=utf-8
 encoding//payment/views.py=utf-8
 encoding//transactions/apps.py=utf-8

@@ -28,21 +28,22 @@ class IndexView(LoginRequiredMixin, TemplateView):
         urlpath = u"/banks/{0}/accounts".format(mybank)
         accounts = api.get(self.request, urlpath)
         for a in accounts:
+            our_account = a['id']
+            eTrans = {'id':our_account,'nrTrans':0,'challenge_type':'-'}
             try:
-                eTrans = {}
-                our_account = a['id']
+
                 urlpath = u'/banks/{0}/accounts/{1}/owner/transactions'.format(mybank, our_account)
                 trans = api.get(self.request, urlpath)
-                
                 urlpath = u'/banks/{0}/accounts/{1}/owner/transaction-request-types'.format(mybank,our_account)
                 r = api.get(self.request, urlpath)
                 challenge_type = r[0]['value']
                 eTrans = {'id':our_account,'nrTrans':len(trans),'challenge_type':challenge_type}
-                transactions.append(eTrans)
+                
             except APIError as err:
                 pass
                 #messages.error(self.request, err)
-                
+            transactions.append(eTrans)
+            
         print(transactions)
             
         context.update({

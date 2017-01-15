@@ -5,7 +5,20 @@
 
 {% block content %}
 <div id="payment">
-	<h1>payment</h1>
+	<h1>Making payment</h1>
+	<form action="{% url 'payment-index' %}" method="post">
+        {% csrf_token %}
+        {% for field in form %}
+            <div class="{{ field.field.widget.attrs.class}}">
+            <b style="color:red;">{{field.errors}}</b>
+            {{ field.label }}{% if field.help_text != "" %} ({{ field.help_text}}) {%endif%}:<br>
+            {{ field }}
+            </div>
+        {% endfor %}
+        <br>
+        <input type="submit" value="Make payment"" />
+
+    </form>
 </div>
 {% endblock content %}
 
