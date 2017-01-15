@@ -194,7 +194,7 @@ OAUTH_API_BASE_PATH = '/obp/v2.1.0' #sanbox
 # Set OAuth client key/secret in apimanager/local_settings.py
 OAUTH_CONSUMER_KEY = 'xfcsuycykkjjdt0lgbluzn0a3gys3ow5twrtat5o'# 'ssin4gmz2haevdx44wajv4wos53tdwktmfyfebrr'
 OAUTH_CONSUMER_SECRET = 'i333z41viimm3xieh5duj3kiz3gvtftdvgydow5d'#'gzv5xi5qk13mylcwcr5pnlrmjrykxcade14tkfko'
-
+    
 # Local settings can override anything in here
 try:
     from apimanager.local_settings import *

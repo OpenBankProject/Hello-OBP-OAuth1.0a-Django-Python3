@@ -1,16 +1,16 @@
-.consumers #consumer-list  {
+.accounts #consumer-list  {
 	margin-top: 20px;
 }
 
-#consumers .btn-group.filter-enabled {
+#accounts .btn-group.filter-enabled {
 	margin-left: 10px;
 }
 
-#consumers .btn-group-vertical.filter-enabled,
-#consumers .btn-group-vertical.filter-apptype {
+#accounts .btn-group-vertical.filter-enabled,
+#accounts .btn-group-vertical.filter-apptype {
 	margin-top: 10px;
 }
 
-#consumers-detail div {
+#accounts-detail div {
 	margin: 10px 0;
 }

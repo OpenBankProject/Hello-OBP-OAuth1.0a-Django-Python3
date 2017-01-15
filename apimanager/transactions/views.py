@@ -23,20 +23,30 @@ class IndexView(LoginRequiredMixin, TemplateView):
         context = super(IndexView, self).get_context_data(**kwargs)
         transactions = []
 
-        try:
-            
-            banks = api.get(self.request, '/banks')
-            mybank = banks['banks'][0]['id']
-            urlpath = u"/banks/{0}/accounts".format(mybank)
-            accounts = api.get(self.request, urlpath)
-            for a in accounts:
-                print (a['id'])
+        banks = api.get(self.request, '/banks')
+        mybank = banks['banks'][0]['id']
+        urlpath = u"/banks/{0}/accounts".format(mybank)
+        accounts = api.get(self.request, urlpath)
+        for a in accounts:
+            try:
+                eTrans = {}
+                our_account = a['id']
+                urlpath = u'/banks/{0}/accounts/{1}/owner/transactions'.format(mybank, our_account)
+                trans = api.get(self.request, urlpath)
                 
-        except APIError as err:
-            messages.error(self.request, err)
+                urlpath = u'/banks/{0}/accounts/{1}/owner/transaction-request-types'.format(mybank,our_account)
+                r = api.get(self.request, urlpath)
+                challenge_type = r[0]['value']
+                eTrans = {'id':our_account,'nrTrans':len(trans),'challenge_type':challenge_type}
+                transactions.append(eTrans)
+            except APIError as err:
+                pass
+                #messages.error(self.request, err)
+                
+        print(transactions)
             
         context.update({
-            'accounts': accounts,
+            'transactions': transactions,
         })
         return context
 

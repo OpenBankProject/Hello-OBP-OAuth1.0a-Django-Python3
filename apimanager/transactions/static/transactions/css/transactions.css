@@ -1,0 +1,32 @@
+.transactions #transactions-list  {
+	margin-top: 20px;
+}
+
+#transactions .btn-group.filter-enabled {
+	margin-left: 10px;
+}
+
+#transactions .btn-group-vertical.filter-enabled,
+#transactions .btn-group-vertical.filter-apptype {
+	margin-top: 10px;
+}
+
+#transactions-detail div {
+	margin: 10px 0;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}

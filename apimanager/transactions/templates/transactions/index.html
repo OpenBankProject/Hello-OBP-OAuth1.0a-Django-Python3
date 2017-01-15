@@ -5,7 +5,23 @@
 
 {% block content %}
 <div id="transactions">
-	<h1>transactions</h1>
+	<h1>Transactions</h1>
+	<h3> Our account: {% with transactions|first as first_doc %}{{ first_doc.id }}{% endwith %} </h3>
+    <h3> List of transactions: </h3>
+    <table style="width:100%">
+      <tr>
+        <th>account_id</th>
+        <th>Number of transactions</th> 
+        <th>Challenge type</th>
+      </tr>
+        {% for t in transactions %}
+            <tr>
+              <td>{{t.id}}</td>
+              <td>{{t.nrTrans}}</td> 
+              <td>{{t.challenge_type}}</td>
+            </tr>
+        {% endfor %}
+    </table>
 </div>
 {% endblock content %}
 
