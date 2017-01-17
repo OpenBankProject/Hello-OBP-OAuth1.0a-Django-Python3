@@ -1,7 +1,6 @@
 .project
 .pydevproject
 .settings/
-env/
 *.swp
 __pycache__/
 

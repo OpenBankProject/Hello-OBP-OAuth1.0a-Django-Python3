@@ -1,8 +1,0 @@
-eclipse.preferences.version=1
-encoding//apimanager/accounts/views.py=utf-8
-encoding//apimanager/base/api.py=utf-8
-encoding//apimanager/base/views.py=utf-8
-encoding//apimanager/consumers/views.py=utf-8
-encoding//apimanager/oauth/apps.py=utf-8
-encoding//apimanager/users/urls.py=utf-8
-encoding//apimanager/users/views.py=utf-8
