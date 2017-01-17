@@ -46,20 +46,17 @@ class IndexView(LoginRequiredMixin, TemplateView):
 
             value = "{0}".format(data['amount_value'])
 
-            print ("value is")
-            print (value)
-
             payload = '{"to": {"account_id": "' + data['to_account_id'] +'", "bank_id": "' + data['to_bank'] + \
-            '"}, "value": {"currency": "' + data['amount_currency'] + '", "amount": "' + value + '"}, "description": "Description abc", "challenge_type" : "' + \
-            data['challenge_type'] + '"}'
+            '"}, "value": {"currency": "' + data['amount_currency'] + '", "amount": "' + value + '"}, "description": "Description abc"}'
+
+            payment_url = u"/banks/{0}/accounts/{1}/owner/transaction-request-types/{2}/transaction-requests".format(
+                data['our_bank'], data['our_account_id'], data['challenge_type'])
+
+            print (u"payment_url is {0}".format(payment_url))
+            print (u"payload is {0}".format(payload))
+
             initiate_response = {}
             try:
-                payment_url = u"/banks/{0}/accounts/{1}/owner/transaction-request-types/{2}/transaction-requests".format(data['our_bank'], data['our_account_id'], data['challenge_type'])
-
-                print (u"payment_url is {0}".format(payment_url))
-
-                print (u"payload is {0}".format(payload))
-
                 initiate_response = api.post(request,payment_url,payload)
             except APIError as err:
                 messages.error(self.request, err)
