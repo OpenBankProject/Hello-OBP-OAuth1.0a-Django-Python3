@@ -43,13 +43,18 @@ class IndexView(LoginRequiredMixin, TemplateView):
         if form.is_valid():
             # <process form cleaned data>
             data = form.cleaned_data
-            payload = '{"to": {"account_id": "' + data['to_bank'] +'", "bank_id": "' + data['to_account_id'] + \
+            payload = '{"to": {"account_id": "' + data['to_account_id'] +'", "bank_id": "' + data['to_bank'] + \
             '"}, "value": {"currency": "' + data['currency'] + '", "amount": "' + repr(data['value']) + '"}, "description": "Description abc", "challenge_type" : "' + \
             data['challenge_type'] + '"}'
             initiate_response = {}
             try:
-                initiate_response = api.post(request, u"/banks/{0}/accounts/{1}/owner/transaction-request-types/{2}/transaction-requests".format(
-                                             data['our_bank'], data['our_account_id'], data['challenge_type']),payload)
+                payment_url = u"/banks/{0}/accounts/{1}/owner/transaction-request-types/{2}/transaction-requests".format(data['our_bank'], data['our_account_id'], data['challenge_type'])
+
+                print (u"payment_url is {0}".format(payment_url))
+
+                print (u"payload is {0}".format(payload))
+
+                initiate_response = api.post(request,payment_url,payload)
             except APIError as err:
                 messages.error(self.request, err)
                 #
