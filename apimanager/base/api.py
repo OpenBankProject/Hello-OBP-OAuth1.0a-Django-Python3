@@ -88,7 +88,7 @@ class API(object):
             )
         time_start = time.time()
         if payload:
-            response = request.api.request(method, url, json=payload)
+            response = request.api.request(method, url,data=payload,headers={ 'content-type'  : 'application/json' })
         else:
             response = request.api.request(method, url)
         time_end = time.time()

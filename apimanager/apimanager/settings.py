@@ -181,8 +181,8 @@ LOGIN_URL = reverse_lazy('home')
 API_DATETIMEFORMAT = '%Y-%m-%dT%H:%M:%SZ'
 
 
-#OAUTH_API = 'https://danskebank.openbankproject.com'
-OAUTH_API = 'https://apisandbox.openbankproject.com'
+OAUTH_API = 'https://danskebank.openbankproject.com'
+#OAUTH_API = 'https://apisandbox.openbankproject.com'
 OAUTH_TOKEN_PATH = '/oauth/initiate'
 OAUTH_AUTHORIZATION_PATH = '/oauth/authorize'
 OAUTH_ACCESS_TOKEN_PATH = '/oauth/token'
@@ -192,8 +192,8 @@ OAUTH_API_BASE_PATH = '/obp/v2.1.0' #sanbox
 
 
 # Set OAuth client key/secret in apimanager/local_settings.py
-OAUTH_CONSUMER_KEY = 'xfcsuycykkjjdt0lgbluzn0a3gys3ow5twrtat5o'# 'ssin4gmz2haevdx44wajv4wos53tdwktmfyfebrr'
-OAUTH_CONSUMER_SECRET = 'i333z41viimm3xieh5duj3kiz3gvtftdvgydow5d'#'gzv5xi5qk13mylcwcr5pnlrmjrykxcade14tkfko'
+OAUTH_CONSUMER_KEY = 'fz3as2gadnzustw5sbnokwspqnit4obdwpsowuif'# 'ssin4gmz2haevdx44wajv4wos53tdwktmfyfebrr'
+OAUTH_CONSUMER_SECRET = 'g32v25gmasvwuav0vemu4jjdbh5x0jit22luclwm'#'gzv5xi5qk13mylcwcr5pnlrmjrykxcade14tkfko'
     
 # Local settings can override anything in here
 try:
