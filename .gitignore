@@ -2,6 +2,7 @@
 .pydevproject
 .settings/
 env/
+.gitignore~
 *.swp
 __pycache__/
 
