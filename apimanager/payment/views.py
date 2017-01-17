@@ -34,7 +34,7 @@ class IndexView(LoginRequiredMixin, TemplateView):
         self.initial['our_account_id'] = accounts[0]['id']
         self.initial['to_bank'] = banks['banks'][0]['id']
         self.initial['to_account_id'] = accounts[randint(1,len(accounts)-1)]['id']
-        self.initial['currency'] = 'GBP'
+        self.initial['amount_currency'] = 'GBP'
         form = self.form_class(initial=self.initial)
         return render(request, self.template_name, {'form': form})
 
@@ -43,8 +43,14 @@ class IndexView(LoginRequiredMixin, TemplateView):
         if form.is_valid():
             # <process form cleaned data>
             data = form.cleaned_data
+
+            value = "{0}".format(data['amount_value'])
+
+            print ("value is")
+            print (value)
+
             payload = '{"to": {"account_id": "' + data['to_account_id'] +'", "bank_id": "' + data['to_bank'] + \
-            '"}, "value": {"currency": "' + data['currency'] + '", "amount": "' + repr(data['value']) + '"}, "description": "Description abc", "challenge_type" : "' + \
+            '"}, "value": {"currency": "' + data['amount_currency'] + '", "amount": "' + value + '"}, "description": "Description abc", "challenge_type" : "' + \
             data['challenge_type'] + '"}'
             initiate_response = {}
             try:
