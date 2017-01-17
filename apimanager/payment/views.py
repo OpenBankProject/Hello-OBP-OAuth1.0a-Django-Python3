@@ -33,8 +33,10 @@ class IndexView(LoginRequiredMixin, TemplateView):
         self.initial['our_bank'] = banks['banks'][0]['id']
         self.initial['our_account_id'] = accounts[0]['id']
         self.initial['to_bank'] = banks['banks'][0]['id']
-        self.initial['to_account_id'] = accounts[randint(1,len(accounts)-1)]['id']
         self.initial['amount_currency'] = 'GBP'
+        if len(accounts) > 1:
+            self.initial['to_account_id'] = accounts[randint(1,len(accounts)-1)]['id']
+        
         form = self.form_class(initial=self.initial)
         return render(request, self.template_name, {'form': form})
 
