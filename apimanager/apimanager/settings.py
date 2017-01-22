@@ -44,11 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
     'base',
     'oauth',
-    'consumers',
-    'users',
     'accounts',
     'transactions',
     'payment',

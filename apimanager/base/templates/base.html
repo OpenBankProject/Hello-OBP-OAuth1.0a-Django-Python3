@@ -27,10 +27,6 @@
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					{% url "consumers-index" as consumers_index_url %}
-					<li{% if consumers_index_url in request.path  %} class="active" {% endif %}><a href="{{ consumers_index_url }}">Consumers</a></li>
-					{% url "users-index" as users_index_url %}
-					<li{% if users_index_url in request.path  %} class="active" {% endif %}><a href="{{ users_index_url }}">Users</a></li>
                     {% url "accounts-index" as accounts_index_url %}
                     <li{% if accounts_index_url in request.path  %} class="active" {% endif %}><a href="{{ accounts_index_url }}">Accounts</a></li>
                     {% url "transactions-index" as transactions_index_url %}
